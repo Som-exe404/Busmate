@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Header Navigation */
+        header {
+            background: #1e5bb8;
+            color: white;
+            padding: 18px;
+            font-size: 22px;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+        }
+
+        nav {
+            position: absolute;
+            right: 20px;
+            top: 18px;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: normal;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Layout (Sidebar + Content) */
+        .main {
+            display: flex;
+            flex: 1;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: #ffffff;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+
+        .sidebar h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .student-info p {
+            margin: 4px 0;
+            color: #333;
+        }
+
+        .feature-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 10px;
+            margin: 10px 0;
+            text-align: left;
+            background: #1e5bb8;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        .feature-btn:hover {
+            background: #164a94;
+        }
+
+        /* Content Area */
+        .content {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .content h1 {
+            font-size: 28px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Student Dashboard
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Logout</a>
+    </nav>
+</header>
+
+<div class="main">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Student Details</h2>
+        <div class="student-info">
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Roll No:</strong> 123456</p>
+            <p><strong>Course:</strong> B.Tech CSE</p>
+            <p><strong>Year:</strong> 2nd Year</p>
+            <p><strong>Bus No:</strong> 12</p>
+        </div>
+
+        <a href="view_buses.html" class="feature-btn">View Bus Route</a>
+        <a href="#" class="feature-btn">Download Bus Pass</a>
+        <a href="#" class="feature-btn">Update Profile</a>
+        <a href="#" class="feature-btn">Complaint Box</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Welcome, Student!</h1>
+        <p>Select a feature from the left panel to continue.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

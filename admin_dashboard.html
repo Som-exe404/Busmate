@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BusMate — Admin Dashboard</title>
+
+  <style>
+    body {font-family: Inter, system-ui, Arial; margin:0; background:#f9fafb;}
+
+    /* HEADER */
+    header {
+      background:#2563eb;
+      color:white;
+      padding:16px 20px;
+      font-size:20px;
+      font-weight:600;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    header a {
+      color:white;
+      margin-left:20px;
+      text-decoration:none;
+      font-size:16px;
+    }
+
+    header a:hover {text-decoration:underline;}
+
+    main {
+      max-width:900px;
+      margin:30px auto;
+      background:white;
+      border-radius:12px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);
+      padding:30px;
+    }
+
+    table {width:100%; border-collapse:collapse; margin-top:20px;}
+    th, td {border:1px solid #e5e7eb; padding:10px; text-align:center;}
+    th {background:#f3f4f6;}
+
+    input[type="text"] {
+      padding:6px 8px;
+      border:1px solid #d1d5db;
+      border-radius:6px;
+      width:90%;
+    }
+
+    button {
+      padding:8px 14px;
+      background:#2563eb;
+      color:white;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover {background:#1e40af;}
+
+    footer {text-align:center; margin-top:40px; color:#6b7280; font-size:13px;}
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div>BusMate Admin Dashboard</div>
+
+    <div>
+      <a href="index.html">Home</a>
+      <a href="logout.html">Logout</a>
+    </div>
+  </header>
+
+  <main>
+    <h2>Manage Routes & Bus Numbers</h2>
+    <p>Edit route details or add new routes. Click <strong>Save Changes</strong> after updating.</p>
+
+    <button id="add-row-btn" style="margin-bottom:15px;">+ Add Route</button>
+
+    <table id="routes-table">
+      <thead>
+        <tr>
+          <th>Starting Point</th>
+          <th>Destination</th>
+          <th>Bus Number</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td contenteditable="true">Main Gate</td>
+          <td contenteditable="true">Engineering Block</td>
+          <td><input type="text" value="MP07-BX-1234" /></td>
+        </tr>
+
+        <tr>
+          <td contenteditable="true">Hostel Area</td>
+          <td contenteditable="true">Library</td>
+          <td><input type="text" value="MP07-BX-5678" /></td>
+        </tr>
+
+        <tr>
+          <td contenteditable="true">Playground</td>
+          <td contenteditable="true">Commerce Block</td>
+          <td><input type="text" placeholder="Enter bus number" /></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:20px; text-align:right;">
+      <button id="save-btn">Save Changes</button>
+    </div>
+  </main>
+
+  <footer>© BusMate Admin • Manage Routes and Bus Assignments</footer>
+
+  <script>
+    // ADD ROW FUNCTION
+    document.getElementById("add-row-btn").addEventListener("click", function () {
+      const tableBody = document.querySelector("#routes-table tbody");
+      const newRow = document.createElement("tr");
+
+      newRow.innerHTML = `
+        <td contenteditable="true">New Start</td>
+        <td contenteditable="true">New Destination</td>
+        <td><input type="text" placeholder="Enter bus number" /></td>
+      `;
+
+      tableBody.appendChild(newRow);
+    });
+
+
+    // SAVE FUNCTION
+    document.getElementById('save-btn').addEventListener('click', () => {
+      const rows = document.querySelectorAll('#routes-table tbody tr');
+      const updates = [];
+
+      rows.forEach(row => {
+        const start = row.children[0].textContent;
+        const end = row.children[1].textContent;
+        const busNo = row.querySelector('input').value;
+        updates.push({ start, end, busNo });
+      });
+
+      console.log('Updated Routes:', updates);
+      alert('Routes saved (demo). Connect backend API to store data permanently.');
+    });
+  </script>
+
+</body>
+</html>

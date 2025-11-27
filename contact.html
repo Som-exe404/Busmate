@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Bus Management System</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #eef2f7;
+            font-family: Arial, sans-serif;
+        }
+
+        /* HEADER */
+        header {
+            background: #1e5bb8;
+            padding: 15px 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* CONTACT PAGE STYLE */
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #1e5bb8;
+            margin-bottom: 10px;
+        }
+
+        .contact-box {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .left, .right {
+            width: 48%;
+        }
+
+        input, textarea {
+            width: 95%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background: #1e5bb8;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #164a94;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .left, .right {
+                width: 100%;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">BusMate Contacts </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<!-- CONTACT CONTENT -->
+<div class="container">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or issues regarding the college bus service, feel free to reach us.</p>
+
+    <div class="contact-box">
+        <!-- CONTACT FORM -->
+        <div class="left">
+            <h3>Send a Message</h3>
+
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <input type="text" placeholder="Subject">
+            <textarea placeholder="Message..."></textarea>
+
+            <button class="btn">Submit</button>
+        </div>
+
+        <!-- CONTACT DETAILS -->
+        <div class="right">
+            <h3> Details </h3>
+            <p><strong>Address:</strong><br>
+               ITM Gwalior, Sithouli , Madhya Pradesh </p>
+
+            <p><strong>Phone:</strong><br>
+               +91 97XXXXX10 </p>
+
+            <p><strong>Email:</strong><br>
+               SupportBusmate@gmail.com</p>
+
+            <p><strong>Office Hours:</strong><br>
+               Mon – Sat: 11:00 AM – 4:00 PM</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
