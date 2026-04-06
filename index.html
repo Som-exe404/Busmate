@@ -3,105 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BusMate - Home </title>
+    <title>BusMate - Home</title>
 
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f6f9;
+            font-family: 'Segoe UI', sans-serif;
+            background: #0f1117;
+            color: white;
         }
 
-        /* NAVIGATION BAR */
+        /* TOP BAR */
+        .top-bar {
+            background: #d9ff00;
+            color: black;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+        }
+
+        /* NAVBAR */
         header {
-            background: #1e5bb8;
-            padding: 15px 20px;
-            color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 20px 50px;
+            background: transparent;
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 28px;
             font-weight: bold;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 20px;
+            margin: 0 15px;
             font-size: 16px;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            color: #d9ff00;
         }
 
-        /* HERO IMAGE */
-        .hero {
-            max-width: 900px;
-            width: 90%;
-            margin: 20px auto;
-            display: block;
-            border-radius: 8px;
-            box-shadow: 0px 5px 15px rgba(0,0,0,0.15);
+        /* HERO SECTION */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px;
         }
 
-        .container {
-            text-align: center;
-            padding: 40px 20px;
+        .hero-text {
+            max-width: 50%;
         }
 
-        .container h1 {
-            font-size: 32px;
-            margin-top: 10px;
+        .hero-text h1 {
+            font-size: 60px;
+            font-weight: bold;
+            line-height: 1.1;
         }
 
-        .container p {
-            color: #555;
-            margin-bottom: 30px;
+        .hero-text p {
+            color: #aaa;
+            margin: 20px 0;
         }
 
         .btn {
-            padding: 12px 25px;
-            margin: 10px;
+            background: #d9ff00;
+            color: black;
+            padding: 12px 30px;
+            border: none;
             font-size: 16px;
-            background: #1e5bb8;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            display: inline-block;
-            transition: 0.2s;
+            cursor: pointer;
+            font-weight: bold;
         }
 
         .btn:hover {
-            background: #164a94;
+            opacity: 0.8;
+        }
+
+        .hero-img img {
+            width: 500px;
+            border-radius: 10px;
+        }
+
+        /* COLLECTION SECTION */
+        .collections {
+            padding: 50px;
+        }
+
+        .collections h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+        }
+
+        .card {
+            background: #1a1d26;
+            height: 120px;
+            flex: 1;
+            border-radius: 8px;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 900px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                max-width: 100%;
+            }
+
+            .hero-img img {
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            .cards {
+                flex-direction: column;
+            }
         }
     </style>
-
 </head>
+
 <body>
 
-<!-- NAVIGATION BAR -->
+<!-- TOP STRIP -->
+<div class="top-bar">!! More features coming soon, Stay tuned !! </div>
+
+<!-- NAVBAR -->
 <header>
-    <div class="logo">BusMate Home </div>
+    <div class="logo">BusMate</div>
 
     <nav>
+        <a href="index.html">Home</a>
         <a href="login.html">Login</a>
         <a href="contact.html">Contact</a>
     </nav>
 </header>
 
-<div class="container">
-
+<!-- HERO SECTION -->
+<section class="hero-section">
     
-    <img src="hero image.png" class="hero" alt="Bus Image">
+    <div class="hero-text">
+        <h1>WELCOME TO BUSMATE</h1>
+        <p>Track buses, view routes and manage your daily travel easily.</p>
+        
+    </div>
 
-    <h1> Welcome to BusMate </h1>
-    <p>Check bus routes, timings & login for more features.</p>
+    <div class="hero-img">
+        <img src="hero image.png" alt="Bus Image">
+    </div>
 
-</div>
+</section>
+
+<!-- COLLECTIONS / FEATURES -->
+<section class="collections">
+    <h2>Features</h2>
+
+    <div class="cards">
+        <div class="card"></div>
+        <div class="card"></div>
+    </div>
+</section>
 
 </body>
 </html>

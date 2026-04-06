@@ -1,108 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Bus Management System</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BusMate Login</title>
 
-    <style>
-        body {
-            margin: 0;
-            background: #e9eef5;
-            font-family: Arial, sans-serif;
-        }
+<!-- ✅ FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-        /* HEADER / NAVBAR */
-        header {
-            background: #1e5bb8;
-            padding: 15px 20px;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f1117;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-        }
+/* CONTAINER */
+.container {
+    width: 350px;
+    background: #1a1d26;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 16px;
-        }
+/* TITLE */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+/* INPUTS */
+input {
+    width: 93%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background: #2a2d36;
+    color: white;
+}
 
-        /* LOGIN BOX */
-        .login-box {
-            width: 350px;
-            margin: 80px auto;
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
-            text-align: center;
-        }
+/* PASSWORD BOX (ICON OUTSIDE) */
+.password-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-        h2 {
-            margin-bottom: 20px;
-            color: #1e5bb8;
-        }
+.eye {
+    cursor: pointer;
+    color: #aaa;
+    font-size: 18px;
+}
 
-        input {
-            width: 90%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #bbb;
-            border-radius: 6px;
-        }
+.eye:hover {
+    color: #d9ff00;
+}
 
-        .btn {
-            width: 95%;
-            padding: 12px;
-            background: #1e5bb8;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-top: 10px;
-            font-size: 16px;
-        }
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #d9ff00;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
 
-        .btn:hover {
-            background: #164a94;
-        }
-    </style>
+button:hover {
+    opacity: 0.8;
+}
+
+/* TOGGLE TEXT */
+.toggle {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.toggle span {
+    color: #d9ff00;
+    cursor: pointer;
+}
+
+/* HIDDEN */
+.hidden {
+    display: none;
+}
+</style>
+
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header>
-    <div class="logo">BusMate Login </div>
+<div class="container">
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
+    <!-- LOGIN FORM -->
+    <div id="loginForm">
+        <h2>Login</h2>
+        <input type="email" placeholder="Email">
 
-<!-- LOGIN BOX -->
-<div class="login-box">
-    <h2>Login</h2>
+        <div class="password-box">
+            <input type="password" id="loginPassword" placeholder="Password">
+            <i class="fa-solid fa-eye eye" onclick="togglePassword('loginPassword', this)"></i>
+        </div>
 
-    <input type="text" placeholder="Enter Username">
-    <input type="password" placeholder="Enter Password">
+        <button>Login</button>
 
-    <button class="btn" onclick="window.location.href='student_home.html'">
-        Login
-    </button>
+        <div class="toggle">
+            Don't have an account? <span onclick="showSignup()">Sign up</span>
+        </div>
+    </div>
+
+    <!-- SIGNUP FORM -->
+    <div id="signupForm" class="hidden">
+        <h2>Sign Up</h2>
+        <input type="text" placeholder="Full Name">
+        <input type="email" placeholder="Email">
+
+        <div class="password-box">
+            <input type="password" id="signupPassword" placeholder="Password">
+            <i class="fa-solid fa-eye eye" onclick="togglePassword('signupPassword', this)"></i>
+        </div>
+
+        <button>Create Account</button>
+
+        <div class="toggle">
+            Already have an account? <span onclick="showLogin()">Login</span>
+        </div>
+    </div>
+
 </div>
 
+<script>
+function showSignup() {
+    document.getElementById("loginForm").classList.add("hidden");
+    document.getElementById("signupForm").classList.remove("hidden");
+}
+
+function showLogin() {
+    document.getElementById("signupForm").classList.add("hidden");
+    document.getElementById("loginForm").classList.remove("hidden");
+}
+
+// 🔥 TOGGLE PASSWORD
+function togglePassword(id, icon) {
+    let input = document.getElementById(id);
+
+    if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    }
+}
+</script>
+
+<!-- 🔥 Firebase Scripts -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<!-- 🔥 Firebase Setup -->
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyC23ZsxxZRPHivUzk90gYtG15GNc9cgrHw",
+  authDomain: "busmate-77431.firebaseapp.com",
+  projectId: "busmate-77431",
+  storageBucket: "busmate-77431.firebasestorage.app",
+  messagingSenderId: "819214276300",
+  appId: "1:819214276300:web:3512dc4be29312fcec1469"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const auth = firebase.auth();
+const db = firebase.firestore();
+</script>
 </body>
 </html>
